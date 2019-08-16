@@ -1,0 +1,28 @@
+{
+    "name": "dapi/wykop-api-client",
+    "description": "Client for Wykop API.",
+    "keywords": ["wykop", "api"],
+    "homepage": "http://github.com/chybaDapi/wykop-api-client",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Dariusz Pisula",
+            "email": "dapi@dapi.net.pl",
+            "homepage": "https://dapi.net.pl"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {"WykopApiClient\\": "src/"}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
