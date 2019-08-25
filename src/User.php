@@ -3,6 +3,7 @@
 namespace WykopApiClient;
 
 use Error;
+use stdClass;
 
 class User
 {
@@ -26,7 +27,9 @@ class User
      * @param string    $username       An username that you want to log in.
      * @param string    $accountKey     A generated account key of the user.
      *
-     * @return array
+     * @return stdClass
+     *
+     * @throws Error
      */
     public function login($username, $accountKey) {
         if (empty($username)) {

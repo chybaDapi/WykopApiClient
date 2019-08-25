@@ -3,6 +3,7 @@
 namespace WykopApiClient;
 
 use Error;
+use stdClass;
 
 class WykopApi
 {
@@ -159,7 +160,9 @@ class WykopApi
      * @param string $path      A path to the API that you want to call.
      * @param null   $postData  Data that should be send in a POST request.
      *
-     * @return mixed
+     * @return stdClass
+     *
+     * @throws Error
      */
     public function request($path, $postData = null) {
         $userKey = ($this->userKey) ? ('userkey/' . $this->userKey) : '';

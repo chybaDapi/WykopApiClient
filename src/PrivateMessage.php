@@ -3,6 +3,7 @@
 namespace WykopApiClient;
 
 use Error;
+use stdClass;
 
 class PrivateMessage
 {
@@ -23,7 +24,9 @@ class PrivateMessage
     /**
      * Retrieves and returns list of all user's conversations.
      *
-     * @return array
+     * @return stdClass
+     *
+     * @throws Error
      */
     public function getConversations() {
         if (empty($this->apiClient->getUserKey())) {
@@ -40,7 +43,9 @@ class PrivateMessage
      *
      * @param string    $receiver   Message's receiver username.
      *
-     * @return array
+     * @return stdClass
+     *
+     * @throws Error
      */
     public function getConversation($receiver) {
         if (empty($this->apiClient->getUserKey())) {
@@ -63,7 +68,9 @@ class PrivateMessage
      * @param string $body      A message's content.
      * @param null   $embed     Attached image/video url address.
      *
-     * @return mixed
+     * @return stdClass
+     *
+     * @throws Error
      */
     public function sendMessage($receiver, $body, $embed = null) {
         if (empty($this->apiClient->getUserKey())) {

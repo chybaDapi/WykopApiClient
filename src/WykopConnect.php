@@ -32,7 +32,6 @@ class WykopConnect
         $encodedRedirectUrl = urlencode(base64_encode($redirectUrl));
         $secure = md5($this->apiClient->getAppSecret() . $redirectUrl);
 
-        // response: eyJhcHBrZXkiOiJzRkVnRzh2aG5DIiwibG9naW4iOiJjaHliYURhcGkiLCJ0b2tlbiI6InNNV2V3RHNWeURBQlRnS1NOSUNtIiwic2lnbiI6ImVmNjg1Y2FiMjdmZTdiNTBhOTM3YTQ3ZTM5MzRmNDVmIn0=
         return $this->apiClient->getApiUrl() . '/login/connect/appkey/' . $this->apiClient->getAppKey() . '/redirect/' . $encodedRedirectUrl . '/secure/' . $secure;
     }
 
@@ -40,6 +39,8 @@ class WykopConnect
      * Retrieves data returned from the API.
      *
      * @return object
+     *
+     * @throws Error
      */
     public function getConnectData() {
         if (empty($_GET['connectData'])) {

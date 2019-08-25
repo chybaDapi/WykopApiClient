@@ -3,6 +3,7 @@
 namespace WykopApiClient;
 
 use Error;
+use stdClass;
 
 class Entries
 {
@@ -27,7 +28,9 @@ class Entries
      * @param null   $embed         Attached image/video url address.
      * @param bool   $adultMedia    Embed media contains a content for adults.
      *
-     * @return mixed
+     * @return stdClass
+     *
+     * @throws Error
      */
     public function post($body, $embed = null, $adultMedia = false) {
         if (empty($this->apiClient->getUserKey())) {

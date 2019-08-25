@@ -3,6 +3,7 @@
 namespace WykopApiClient;
 
 use Error;
+use stdClass;
 
 class Profile
 {
@@ -25,10 +26,12 @@ class Profile
      *
      * @param string    $username  An username that you want to retrieve data for.
      *
-     * @return array
+     * @return stdClass
+     *
+     * @throws Error
      */
     public function get($username) {
-        if (empty($userKey)) {
+        if (empty($username)) {
             throw new Error('Username parameter for Profile::get() is required!');
         }
 
@@ -42,10 +45,12 @@ class Profile
      *
      * @param string    $username  An username that you want to retrieve data for.
      *
-     * @return array
+     * @return stdClass
+     *
+     * @throws Error
      */
     public function getActions($username) {
-        if (empty($userKey)) {
+        if (empty($username)) {
             throw new Error('Username parameter for Profile::getActions() is required!');
         }
 
@@ -57,7 +62,7 @@ class Profile
     /**
      * Retrieves and returns users colors.
      *
-     * @return array
+     * @return stdClass
      */
     public function getAvailableColors() {
         return $this->apiClient->request(
@@ -71,7 +76,9 @@ class Profile
      * @param string    $username    An username that you want to retrieve data for.
      * @param int|null  $page        One-based page number.
      *
-     * @return array
+     * @return stdClass
+     *
+     * @throws Error
      */
     public function getEntries($username, $page = 1) {
         if (empty($username)) {
