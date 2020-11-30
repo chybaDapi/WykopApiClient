@@ -13,7 +13,7 @@ class Entries
     private $apiClient = null;
 
     /**
-     * Profile constructor.
+     * Entries constructor.
      *
      * @param WykopApi  $apiClient
      */

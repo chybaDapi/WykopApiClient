@@ -58,6 +58,8 @@ class WykopApi
         $this->wykopConnect = new WykopConnect($this);
         $this->user = new User($this);
         $this->profile = new Profile($this);
+        $this->tags = new Tags($this);
+        $this->entries = new Entries($this);
         $this->privateMessage = new PrivateMessage($this);
     }
 
@@ -177,7 +179,8 @@ class WykopApi
             CURLOPT_CONNECTTIMEOUT => 15,
             CURLOPT_TIMEOUT => 15,
             CURLOPT_MAXREDIRS => 10,
-            CURLOPT_HTTPHEADER => ['apisign:' . $this->getRequestSign($path, $postData)]
+            CURLOPT_HTTPHEADER => ['apisign:' . $this->getRequestSign($path, $postData)],
+            CURLOPT_SSLVERSION => 1
         );
 
         if ($postData !== null) {
