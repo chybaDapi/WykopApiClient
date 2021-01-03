@@ -37,7 +37,7 @@ class Tags
         }
 
         return $this->apiClient->request(
-			'Tags/Entries/' . $tag . '/page/' . $page . '/data/full/'
+            'Tags/Entries/' . $tag . '/page/' . $page . '/data/full/'
         );
     }
 }
